@@ -1,0 +1,17 @@
+.contact_wrapper{
+  display: flex;
+  flex-direction: column;
+}
+
+.contact_field{
+  
+}
+
+.phone_icon{
+width: 12px;
+margin-right: 5px;
+}
+
+.contact_icon{
+  width: 20px;
+}
