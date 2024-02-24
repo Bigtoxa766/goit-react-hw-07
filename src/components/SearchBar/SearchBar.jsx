@@ -1,5 +1,4 @@
-// import { Formik } from 'formik';
-// import * as Yup from "yup";
+
 import { useDispatch, useSelector } from 'react-redux';
 import css from './SearchBar.module.css'
 import {filterNumbers } from '../../redux/filterSlice'

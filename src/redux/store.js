@@ -9,25 +9,15 @@ import {
   persistStore,
 } from 'redux-persist';
 import { contactsReducer } from './contactSlice';
-import storage from 'redux-persist/lib/storage';
-import persistReducer from 'redux-persist/lib/persistReducer';
 import { filtersReducer } from './filterSlice';
-
-const persistConfig = {
-  key: 'root',
-  version: 1,
-  storage,
-};
 
 const rootReducer = combineSlices({
   filters: filtersReducer,
   contacts: contactsReducer,
 });
 
-const persistedTAskReducer = persistReducer(persistConfig, rootReducer)
-
 export const store = configureStore({
-  reducer: persistedTAskReducer,
+  reducer: rootReducer,
 
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

@@ -2,7 +2,6 @@ import { FaPhone } from "react-icons/fa";
 import { MdOutlineMan } from "react-icons/md";
 import css from './Contact.module.css';
 
-
 export const Contact = ({ name, number }) => {  
   return (
     <div className={css.contact_wrapper}>
