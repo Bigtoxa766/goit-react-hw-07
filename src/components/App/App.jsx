@@ -6,6 +6,7 @@ import { ContactForm } from '../ContactForm/ContactForm';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchContacts } from '../../redux/operations';
+// import { getContacts } from '../../redux/selector';
 
 
 function App() {  

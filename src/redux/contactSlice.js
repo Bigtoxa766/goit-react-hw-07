@@ -9,11 +9,11 @@ export const contactsSlice = createSlice({
     error: false,
   },
 
-  extraReducers: builder => 
+  extraReducers: builder =>
     builder
       .addCase(fetchContacts.pending, state => {
         state.loading = true;
-        state.error = false; 
+        state.error = false;
       })
       .addCase(fetchContacts.fulfilled, (state, action) => {
         state.loading = false;
@@ -24,17 +24,33 @@ export const contactsSlice = createSlice({
         state.error = true;
         state.loading = false;
       })
-      .addCase(deleteContact.pending, () => { })
+      .addCase(deleteContact.pending, (state) => {
+        state.loading = true;
+        state.error = false;
+      })
       .addCase(deleteContact.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = false;
         state.items = state.items.filter(contact =>
           contact.id !== action.payload.id)
-       })
-      .addCase(deleteContact.rejected, () => { })
-      .addCase(addContact.pending, () => { })
+      })
+      .addCase(deleteContact.rejected, (state) => {
+        state.error = true;
+        state.loading = false;
+      })
+      .addCase(addContact.pending, (state) => {
+        state.loading = true;
+        state.error = false;
+      })
       .addCase(addContact.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = false;
         state.items.push(action.payload)
-       })
-  .addCase(addContact.rejected, ()=>{})
+      })
+      .addCase(addContact.rejected, (state) => {
+        state.error = true;
+        state.loading = false;
+      })
 });
 
 export const contactsReducer = contactsSlice.reducer;

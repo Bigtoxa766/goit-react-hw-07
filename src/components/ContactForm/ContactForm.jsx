@@ -26,9 +26,9 @@ export const ContactForm = () => {
     const newContact = {
       id: nanoid(),
       name: values.name,
-      number: values.number
+      phone: values.number
     }
-
+console.log(values)
     dispatch(addContact(newContact));
     actions.resetForm();
   };
@@ -49,7 +49,6 @@ export const ContactForm = () => {
         <ErrorMessage className={css.error_message} name="number" component="span"/>
         <button className={css.form_btn} type="submit">Add contact</button>
       </Form>
-       
     </Formik>
   )
 };
